@@ -31,7 +31,7 @@ public class LoginPageUI {
         
         // Login button with improved styling
         Button loginButton = new Button("Login");
-        loginButton.setStyle("-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 14px;");
+        loginButton.setStyle("-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 14px; -fx-cursor: hand;");
         loginButton.setPadding(new Insets(10, 20, 10, 20));
         loginButton.setOnAction((ActionEvent event) -> {
             String username = usernameField.getText();
@@ -40,6 +40,26 @@ public class LoginPageUI {
             //add database logic here
             
             Navigation.navigateTo("HomePage");
+        });
+        
+        usernameField.setOnKeyPressed(event -> {
+        	switch (event.getCode()) {
+        	case ENTER:
+        		loginButton.fire();
+        		break;
+    		default:
+    			break;
+        	}
+        });
+        
+        passwordField.setOnKeyPressed(event -> {
+        	switch (event.getCode()) {
+        	case ENTER:
+        		loginButton.fire();
+        		break;
+    		default:
+    			break;
+        	}
         });
         
         // Layout adjustments

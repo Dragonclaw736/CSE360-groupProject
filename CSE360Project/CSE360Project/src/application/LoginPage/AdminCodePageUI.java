@@ -26,7 +26,7 @@ public class AdminCodePageUI {
 	
 	// Submit code button
     Button submitButton = new Button("Submit");
-    submitButton.setStyle("-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 14px;");
+    submitButton.setStyle("-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 14px; -fx-cursor: hand;");
     submitButton.setPadding(new Insets(10, 20, 10, 20));
     submitButton.setOnAction((ActionEvent event) ->{
     	String adminCode = adminCodeField.getText();
@@ -40,6 +40,18 @@ public class AdminCodePageUI {
     		// Show some error message
     	}
     });
+    
+    // Enable Enter key to submit admin code
+    adminCodeField.setOnKeyPressed(event -> {
+    	switch (event.getCode()) {
+    		case ENTER:
+    			submitButton.fire();
+    			break;
+			default:
+				break;
+    	}
+    });
+    
  // Layout adjustments
     VBox layout = new VBox(15);  // Increased spacing between elements
     layout.setPadding(new Insets(20));  // Add padding around the layout
