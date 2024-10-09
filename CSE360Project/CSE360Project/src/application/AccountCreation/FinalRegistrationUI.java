@@ -7,7 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class EmailAndFullNamePage {
+public class FinalRegistrationUI {
 
     public static void show(Stage primaryStage, String username, String password) {
         Label emailLabel = new Label("Email:");
