@@ -35,10 +35,18 @@ public class AdminCodePageUI {
     	boolean codeAccepted = true; // In the future replace with validation
     	
     	if (codeAccepted) {
-    		Navigation.navigateTo("LoginPage");
+    		Navigation.navigateTo("AccountCreationPage");
     	} else {
     		// Show some error message
     	}
+    });
+    
+    // Skip button
+    Button skipButton = new Button("Skip");
+    skipButton.setStyle("-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 14px; -fx-cursor: hand;");
+    skipButton.setPadding(new Insets(10, 20, 10, 20));
+    skipButton.setOnAction((ActionEvent event) -> {
+        Navigation.navigateTo("LoginPage");
     });
     
     // Enable Enter key to submit admin code
@@ -56,7 +64,7 @@ public class AdminCodePageUI {
     VBox layout = new VBox(15);  // Increased spacing between elements
     layout.setPadding(new Insets(20));  // Add padding around the layout
     layout.setAlignment(Pos.CENTER);  // Center the elements
-    layout.getChildren().addAll(titleLabel, adminCodeField, submitButton);
+    layout.getChildren().addAll(titleLabel, adminCodeField, submitButton, skipButton);
 	
     Scene scene = new Scene(layout, 350, 250);
 	

@@ -32,6 +32,7 @@ public class Main extends Application {
 	
 	private static final Users Users = new Users();
 	Stage theloginpage;
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
