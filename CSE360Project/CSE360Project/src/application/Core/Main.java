@@ -26,6 +26,7 @@ import HomePage.HomePageUI;
 import application.Users;
 import javafx.scene.layout.Pane;
 import application.LoginPage.*;
+import application.AccountCreation.*;
 
 public class Main extends Application {
 	
@@ -39,6 +40,7 @@ public class Main extends Application {
 		
 		LoginPageUI.RegisterWithNavigation();
 		HomePageUI.RegisterWithNavigation();
+		AccountCreationUI.RegisterWithNavigation();
 		
         Navigation.navigateTo("LoginPage");
     }
