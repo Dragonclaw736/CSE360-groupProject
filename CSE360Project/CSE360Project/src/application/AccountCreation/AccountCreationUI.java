@@ -6,11 +6,12 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 
-public class AccountCreationUI {
+public class AccountCreationUI extends GridPane {
 
-    public static void RegisterWithNavigation() {
+    private TextField usernameField;
+
+    public AccountCreationUI() {
         // Create Labels
         Label emailLabel = new Label("Email:");
         Label usernameLabel = new Label("Username:");
@@ -22,7 +23,7 @@ public class AccountCreationUI {
         TextField emailField = new TextField();
         emailField.setPromptText("Enter your email");
 
-        TextField usernameField = new TextField();
+        usernameField = new TextField();
         usernameField.setPromptText("Choose a username");
 
         PasswordField passwordField = new PasswordField();
@@ -52,33 +53,34 @@ public class AccountCreationUI {
         });
 
         // Layout using GridPane
-        GridPane grid = new GridPane();
-        grid.setAlignment(Pos.CENTER);
-        grid.setVgap(10);
-        grid.setHgap(10);
-        grid.setPadding(new Insets(20));
+        setAlignment(Pos.CENTER);
+        setVgap(10);
+        setHgap(10);
+        setPadding(new Insets(20));
 
         // Add components to the grid
-        grid.add(emailLabel, 0, 0);
-        grid.add(emailField, 1, 0);
+        add(emailLabel, 0, 0);
+        add(emailField, 1, 0);
+        add(usernameLabel, 0, 1);
+        add(usernameField, 1, 1);
+        add(passwordLabel, 0, 2);
+        add(passwordField, 1, 2);
+        add(phoneLabel, 0, 3);
+        add(phoneField, 1, 3);
+        add(roleLabel, 0, 4);
+        add(roleComboBox, 1, 4);
+        add(submitButton, 1, 5);
+    }
 
-        grid.add(usernameLabel, 0, 1);
-        grid.add(usernameField, 1, 1);
+    public void setUsername(String username) {
+        if (usernameField != null) {
+            usernameField.setText(username);
+        }
+    }
 
-        grid.add(passwordLabel, 0, 2);
-        grid.add(passwordField, 1, 2);
-
-        grid.add(phoneLabel, 0, 3);
-        grid.add(phoneField, 1, 3);
-
-        grid.add(roleLabel, 0, 4);
-        grid.add(roleComboBox, 1, 4);
-
-        grid.add(submitButton, 1, 5);
-
-        // Scene setup
-        Scene scene = new Scene(grid, 400, 350);
-
-        Navigation.registerScene("AccountCreationPage", scene);
+    public static void RegisterWithNavigation() {
+        AccountCreationUI ui = new AccountCreationUI();
+        Scene scene = new Scene(ui, 400, 350);
+        Navigation.registerScene("AccountCreationUI", scene);
     }
 }

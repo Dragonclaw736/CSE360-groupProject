@@ -2,8 +2,8 @@ package application.Core;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.util.HashMap;
+import application.AccountCreation.AccountCreationUI;
 
 public class Navigation {
 
@@ -23,6 +23,20 @@ public class Navigation {
     // Navigate to a specific scene by name
     public static void navigateTo(String sceneName) {
         Scene scene = scenes.get(sceneName);
+        if (scene != null) {
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } else {
+            System.out.println("Scene '" + sceneName + "' not found.");
+        }
+    }
+
+    // Navigate to AccountCreationUI with a username
+    public static void navigateToWithUsername(String sceneName, String username) {
+        Scene scene = scenes.get(sceneName);
+        if (scene != null && scene.getRoot() instanceof AccountCreationUI) {
+            ((AccountCreationUI) scene.getRoot()).setUsername(username);
+        }
         if (scene != null) {
             primaryStage.setScene(scene);
             primaryStage.show();
