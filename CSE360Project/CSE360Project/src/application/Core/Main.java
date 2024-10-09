@@ -1,4 +1,4 @@
-package application;
+package application.Core;
 	
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -9,7 +9,9 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -19,7 +21,11 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import java.sql.SQLException;
 import java.util.Scanner;
+
+import HomePage.HomePageUI;
+import application.Users;
 import javafx.scene.layout.Pane;
+import application.LoginPage.*;
 
 public class Main extends Application {
 	
@@ -28,58 +34,18 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-	public void start(Stage loginpage) {// main login page
-		theloginpage = loginpage;
-		loginpage.setTitle("login");
-		TextField text_username = new TextField();
-		text_username.setPromptText("Enter username: ");
-        TextField text_password = new TextField();
-        text_password.setPromptText("Enter password: ");
-		 Button login = new Button();
-	        login.setText("Login");
-	        login.setOnAction(new EventHandler<>() {
-	            public void handle(ActionEvent event) {
-	            	int finishup = 0;
-	            	int rolenum = 1;
-	            	String role = "";
-	                if(finishup == 0) {
-	                	//finishaccountpage();
-	                	loginpage.close();
-	                }
-	                else if(rolenum > 1) {
-	                	//rolepage();
-	                	loginpage.close();
-	                }
-	                else {
-	                	if(role == "t") {
-	                    	//teacherpage();
-	                    	loginpage.close();
-	                    }
-	                    else if(role == "s") {
-	                    	//studentpage();
-	                    	loginpage.close();
-	                    }
-	                    else{
-	                    	//adminpage();
-	                    	loginpage.close();
-	                    }
-	                }
-	            }
-	        });
-	        Button submit = new Button();
-	        submit.setText("Login");
-	        submit.setOnAction(new EventHandler<>() {
-	            public void handle(ActionEvent event) {
-	            	
-	            }
-	            	
-	        });
-	        Pane root = new Pane();
-	        root.getChildren().add(login);
-	        root.getChildren().add(submit);
-	        loginpage.setScene(new Scene(root, 500, 450));
-	        loginpage.show();
-	}
+	public void start(Stage baseStage) {
+		Navigation.setPrimaryStage(baseStage);
+		
+		LoginPageUI.RegisterWithNavigation();
+		HomePageUI.RegisterWithNavigation();
+		
+        Navigation.navigateTo("LoginPage");
+    }
+}
+
+
+
 /**
 	public void createaccountpage() {// the page for creating account page
 		Stage createaccount = new Stage();
@@ -305,4 +271,4 @@ public class Main extends Application {
         });
 	}
 **/	
-}
+
