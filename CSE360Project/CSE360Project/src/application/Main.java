@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.scene.control.Label;
@@ -18,15 +19,17 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import java.sql.SQLException;
 import java.util.Scanner;
+import javafx.scene.layout.Pane;
 
 public class Main extends Application {
 	
 	private static final Users Users = new Users();
-	
+	Stage theloginpage;
 	public static void main(String[] args) {
 		launch(args);
 	}
 	public void start(Stage loginpage) {// main login page
+		theloginpage = loginpage;
 		loginpage.setTitle("login");
 		TextField text_username = new TextField();
 		text_username.setPromptText("Enter username: ");
@@ -36,19 +39,67 @@ public class Main extends Application {
 	        login.setText("Login");
 	        login.setOnAction(new EventHandler<>() {
 	            public void handle(ActionEvent event) {
-	                
+	            	int finishup = 0;
+	            	int rolenum = 1;
+	            	String role = "";
+	                if(finishup == 0) {
+	                	//finishaccountpage();
+	                	loginpage.close();
+	                }
+	                else if(rolenum > 1) {
+	                	//rolepage();
+	                	loginpage.close();
+	                }
+	                else {
+	                	if(role == "t") {
+	                    	//teacherpage();
+	                    	loginpage.close();
+	                    }
+	                    else if(role == "s") {
+	                    	//studentpage();
+	                    	loginpage.close();
+	                    }
+	                    else{
+	                    	//adminpage();
+	                    	loginpage.close();
+	                    }
+	                }
 	            }
 	        });
+	        Button submit = new Button();
+	        submit.setText("Login");
+	        submit.setOnAction(new EventHandler<>() {
+	            public void handle(ActionEvent event) {
+	            	
+	            }
+	            	
+	        });
+	        Pane root = new Pane();
+	        root.getChildren().add(login);
+	        root.getChildren().add(submit);
+	        loginpage.setScene(new Scene(root, 500, 450));
+	        loginpage.show();
 	}
+/**
 	public void createaccountpage() {// the page for creating account page
 		Stage createaccount = new Stage();
-		createaccount.setTitle("Crerate a user account");
+		createaccount.setTitle("Create a user account");
 		TextField text_username = new TextField();
 		text_username.setPromptText("Enter username: ");
-		setUser(String newUser);
         TextField text_password = new TextField();
         text_password.setPromptText("Enter password: ");
-        setPassword(String newPassword);
+        Button create = new Button();
+        create.setText("Create account");
+        create.setOnAction(new EventHandler<>() {
+            public void handle(ActionEvent event) {
+            	String inputpassword = text_password.getText();
+            	Users.setPassword(inputpassword);
+            	String inputusername = text_username.getText();
+            	Users.setUser(inputusername);
+            	createaccount.close();
+            	start(theloginpage);
+            }
+        });
 	}
 	public void rolepage() {// the role selection page
 		Stage roleselection = new Stage();
@@ -79,25 +130,37 @@ public class Main extends Application {
 		finishaccount.setTitle("Finish setting up your account:");
 		TextField text_firstname = new TextField();
 		text_firstname.setPromptText("Enter First name: ");
+		_newname.first = "";
         TextField text_middleinitial = new TextField();
-        name.first = "";
         text_middleinitial.setPromptText("Enter middle initial: ");
+        _newname.mI = 'a';
         TextField text_lastname = new TextField();
         text_lastname.setPromptText("Enter last name: ");
+        _newname.last = "";
         TextField text_perferedname = new TextField();
         text_perferedname.setPromptText("Enter perfered name: ");
+        _newname.prefered = "";
         TextField text_email = new TextField();
         text_email.setPromptText("Enter email: ");
-        setEmail( email);
+        
         Button finishup = new Button();
         finishup.setText("Finish creating account");
         finishup.setOnAction(new EventHandler<>() {
             public void handle(ActionEvent event) {
-                if() {
-                	
+            	String role = "";
+            	Users.setName(_newname);
+            	Users.setEmail(email);
+            	if(role == "t") {
+                	teacherpage();
+                	finishaccount.close();
                 }
-                else if() {
-                	
+                else if(role == "s") {
+                	studentpage();
+                	finishaccount.close();
+                }
+                else{
+                	adminpage();
+                	finishaccount.close();
                 }
             }
         });
@@ -188,7 +251,7 @@ public class Main extends Application {
             }
         });
 	}
-	public void userlistpage() {// for displaying a list of user
+	public void userlistpage() throws SQLException {// for displaying a list of user
 		Stage userlist = new Stage();
 		userlist.setTitle("userlist");
 		Users.userList();
@@ -241,4 +304,5 @@ public class Main extends Application {
             }
         });
 	}
+**/	
 }
