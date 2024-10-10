@@ -1,6 +1,7 @@
 package application.LoginPage;
 
 import application.Core.Navigation;
+import application.Users;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,7 +14,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class LoginPageUI {
-    public static void RegisterWithNavigation() {
+    public static Users RegisterWithNavigation() {
+    	
+    	Users user = new Users();
     	
     	// Create a label for the page title
         Label titleLabel = new Label("Welcome, Please Log In");
@@ -37,9 +40,9 @@ public class LoginPageUI {
             String username = usernameField.getText();
             String password = passwordField.getText();
             
-            //add database logic here
+            // Add database logic
             
-            Navigation.navigateTo("HomePage");
+            Navigation.navigateTo("RoleSelection");
         });
 
         // Layout adjustments
@@ -51,5 +54,7 @@ public class LoginPageUI {
         Scene scene = new Scene(layout, 350, 250);
     	
     	Navigation.registerScene("LoginPage", scene);
+    	
+    	return user;
     }
 }

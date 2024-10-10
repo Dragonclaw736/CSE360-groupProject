@@ -7,7 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class UsernamePasswordPage {
+public class AccountCreationUI {
 
     public static void show(Stage primaryStage) {
         Label usernameLabel = new Label("Username:");
@@ -25,7 +25,7 @@ public class UsernamePasswordPage {
             String username = usernameField.getText();
             String password = passwordField.getText();
             if (!username.isEmpty() && !password.isEmpty()) {
-                EmailAndFullNamePage.show(primaryStage, username, password);
+                FinalRegistrationUI.show(primaryStage, username, password);
             }
         });
 
@@ -44,5 +44,9 @@ public class UsernamePasswordPage {
         Scene scene = new Scene(grid, 400, 300);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+    
+    public static void RegisterWithNavigation() {
+    	
     }
 }

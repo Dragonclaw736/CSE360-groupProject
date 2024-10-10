@@ -38,9 +38,14 @@ public class Main extends Application {
 	public void start(Stage baseStage) {
 		Navigation.setPrimaryStage(baseStage);
 		
-		LoginPageUI.RegisterWithNavigation();
-		HomePageUI.RegisterWithNavigation();
-		AccountCreationUI.RegisterWithNavigation();
+		Users user = LoginPageUI.RegisterWithNavigation();
+		
+		HomePageUI.RegisterWithNavigation(user);
+		
+		
+		
+		
+		//AccountCreationUI.RegisterWithNavigation();
 		
         Navigation.navigateTo("LoginPage");
     }
