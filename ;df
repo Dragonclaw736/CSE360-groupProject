@@ -1,0 +1,32 @@
+Commented code 
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch commented_code
+# Changes to be committed:
+#	modified:   CSE360Project/CSE360Project/.project
+#	deleted:    CSE360Project/CSE360Project/bin/.gitignore
+#	new file:   CSE360Project/CSE360Project/bin/HomePage/AdminHomePageUI.class
+#	new file:   CSE360Project/CSE360Project/bin/HomePage/HomePageUI.class
+#	new file:   CSE360Project/CSE360Project/bin/HomePage/InstructorHomePageUI.class
+#	new file:   CSE360Project/CSE360Project/bin/HomePage/UserHomePageUI.class
+#	new file:   CSE360Project/CSE360Project/bin/application/AccountCreation/AccountCreationUI.class
+#	new file:   CSE360Project/CSE360Project/bin/application/AccountCreation/FinalRegistrationUI.class
+#	new file:   CSE360Project/CSE360Project/bin/application/Core/Main.class
+#	new file:   CSE360Project/CSE360Project/bin/application/Core/Navigation.class
+#	modified:   CSE360Project/CSE360Project/bin/application/DIFFICULTY.class
+#	new file:   CSE360Project/CSE360Project/bin/application/DataBase/UsersAPI.class
+#	new file:   CSE360Project/CSE360Project/bin/application/LoginPage/LoginPageUI.class
+#	modified:   CSE360Project/CSE360Project/bin/application/Topic.class
+#	new file:   CSE360Project/CSE360Project/bin/application/UI.class
+#	modified:   CSE360Project/CSE360Project/bin/application/Users.class
+#	modified:   CSE360Project/CSE360Project/bin/application/name.class
+#	modified:   CSE360Project/CSE360Project/src/application/AccountCreation/AccountCreationUI.java
+#	modified:   CSE360Project/CSE360Project/src/application/AccountCreation/FinalRegistrationUI.java
+#	modified:   CSE360Project/CSE360Project/src/application/Core/Navigation.java
+#	modified:   CSE360Project/CSE360Project/src/application/LoginPage/LoginPageUI.java
+#	modified:   CSE360Project/CSE360Project/src/application/Topic.java
+#	modified:   CSE360Project/CSE360Project/src/application/UI.java
+#	modified:   CSE360Project/CSE360Project/src/application/Users.java 
