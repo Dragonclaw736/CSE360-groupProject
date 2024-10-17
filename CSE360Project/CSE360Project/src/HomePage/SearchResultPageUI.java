@@ -22,7 +22,7 @@ public class SearchResultPageUI {
     public static void RegisterWithNavigation(String query) {
         // Result TextBox (with subtle border)
         Label resultText = new Label("Result goes here...");
-        resultText.setPrefSize(500, 1000);  // Adjust size as needed
+        resultText.setPrefSize(550, 300);  // Adjust size as needed
         resultText.setStyle("-fx-background-color: #F0F0F0; -fx-padding: 10px; -fx-border-color: #CCCCCC; -fx-border-width: 1px;");
 
         // Search Bar
@@ -49,6 +49,7 @@ public class SearchResultPageUI {
 
         // Feedback Section (5-star rating and comments)
         Button feedbackButton = new Button("Add Feedback");
+        feedbackButton.setStyle("-fx-padding-bottom: 5px;");
 
         // Star rating system (5 clickable stars)
         HBox starRating = new HBox(5);
@@ -69,16 +70,21 @@ public class SearchResultPageUI {
         Button sendButton = new Button("Send");
         sendButton.setOnAction(e -> {
             feedbackLayout.setVisible(false); // Hide feedback section on send
+            feedbackLayout.setManaged(false); // Removes padding when hidden
         });
 
         // Feedback layout (star rating, comments, and send button)
         feedbackLayout = new VBox(10); // Initialize feedbackLayout
         feedbackLayout.getChildren().addAll(starRating, commentsBox, sendButton);
         feedbackLayout.setVisible(false);  // Initially hidden
+        feedbackLayout.setManaged(false); // Don't take space when hidden
         feedbackLayout.setStyle("-fx-padding: 5px;");
 
         // Show feedback form when button is clicked
-        feedbackButton.setOnAction(e -> feedbackLayout.setVisible(true));
+        feedbackButton.setOnAction(e -> {
+        feedbackLayout.setVisible(true);
+        feedbackLayout.setManaged(true);
+        });
 
         // Top Bar Layout (Search Bar, Search Button, Logout Button)
         HBox topBar = new HBox(10);
