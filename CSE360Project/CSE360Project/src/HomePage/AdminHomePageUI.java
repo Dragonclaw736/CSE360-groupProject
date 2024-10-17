@@ -39,7 +39,8 @@ public class AdminHomePageUI {
         adminPanel.setPadding(new Insets(10, 20, 10, 20));
         adminPanel.setOnAction((ActionEvent event) -> {
             // Open Admin Panel
-        	System.out.println("OPEN ADMIN PANEL");
+        	// Getting a 'scene not found error here'
+        	Navigation.navigateTo("AdminPanel");
         });
 
         // Logout Button

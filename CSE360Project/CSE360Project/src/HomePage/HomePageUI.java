@@ -22,13 +22,13 @@ public class HomePageUI {
 		
 		// For testing purposes, uncomment one of these lines
 		// Default User
-		// user.setUser("Team #62"); user.setPassword("Password") ; user.setRole(0);
+		// user.setUser("Team #60"); user.setPassword("Password") ; user.setRole(0);
 		   
 		// Instructor
-		// user.setUser("Team #62"); user.setPassword("Password") ; user.setRole(1);
+		// user.setUser("Team #60"); user.setPassword("Password") ; user.setRole(1);
 		   
 		// Admin
-		user.setUser("Team #62"); user.setPassword("Password") ; user.setRole(2);
+		user.setUser("Team #60"); user.setPassword("Password") ; user.setRole(2);
 		
 		
 		
