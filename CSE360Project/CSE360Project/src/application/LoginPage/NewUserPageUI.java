@@ -26,7 +26,7 @@ public class NewUserPageUI {
 
         // Admin code field
         TextField adminCodeField = new TextField();
-        adminCodeField.setPromptText("Optional: Enter one-time admin code");
+        adminCodeField.setPromptText("Enter one-time code (Optional)");
         adminCodeField.setMaxWidth(200);
 
         // Error message label

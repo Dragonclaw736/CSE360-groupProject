@@ -58,6 +58,9 @@ public class Users {
 	private int expire;
 	private int perms;
 	
+	// Default Constructor
+	public Users() {}
+	
 	
 	
 	public String getEmail(){
@@ -107,6 +110,15 @@ public class Users {
 	}
 	public void resetUser() {
 		
+	}
+	
+	// Permission Accessors and Mutators
+	public void setRole(int perms) {
+		this.perms = perms;
+	}
+	
+	public int getRole() {
+		return perms;
 	}
 }
 
