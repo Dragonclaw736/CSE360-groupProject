@@ -46,7 +46,7 @@ public class AccountCreationUI {
         primaryStage.show();
     }
     
-    public static void RegisterWithNavigation() {
-    	
+    public static void RegisterWithNavigation(Stage primaryStage) {
+    	show(primaryStage);
     }
 }

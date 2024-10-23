@@ -1,6 +1,7 @@
 package application.LoginPage;
 
 import application.Core.Navigation;
+import application.DataBase.UsersAPI;
 import application.Users;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
@@ -41,8 +42,11 @@ public class LoginPageUI {
             String password = passwordField.getText();
             
             // Add database logic
+            if (UsersAPI.isValidLogin(username, password)) {
+            	Navigation.navigateTo("RoleSelection");
+            }
             
-            Navigation.navigateTo("RoleSelection");
+            
         });
 
         // Layout adjustments

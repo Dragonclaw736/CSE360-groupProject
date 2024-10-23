@@ -1,5 +1,7 @@
 package application.AccountCreation;
 
+import application.DataBase.UsersAPI;
+import application.DataBase.Models.User;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -42,6 +44,12 @@ public class FinalRegistrationUI {
 
             if (!email.isEmpty() && !firstName.isEmpty() && !lastName.isEmpty()) {
                 System.out.println("Account created for: " + username + ", " + firstName + " " + lastName);
+                User user = new User();
+                user.setEmail(email);
+                user.setName(firstName + " " + middleName + " " + lastName);
+                user.setPassword(password);
+                user.setUsername(username);
+                UsersAPI.addUser(user);
             }
         });
 

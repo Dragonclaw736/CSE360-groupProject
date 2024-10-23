@@ -45,7 +45,7 @@ public class Main extends Application {
 		
 		
 		
-		//AccountCreationUI.RegisterWithNavigation();
+	    //AccountCreationUI.RegisterWithNavigation(baseStage);
 		
         Navigation.navigateTo("LoginPage");
     }
